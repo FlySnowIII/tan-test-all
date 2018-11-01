@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <title>Tan Test - Jquery Ajax Google Api</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+    crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+  <div class="jumbotron">
+    <h3>jQuery access Google Speech Api</h3>
+    <p class="lead">長い音声ファイルを非同期で文字変換して、その結果を取りに行く例です。</p>
+    <hr class="my-2">
+    <p>Runボタンを実行してみてください</p>
+    <p class="lead">
+      <button id="myBtn" type="button" class="btn btn-primary px-5">Run</button>
+    </p>
+  </div>
+
+
+
+  <script>
+    $(document).ready(function () {
+
+
+      $("#myBtn").click(function () {
+
+        console.log("AAAA");
+        var operations = [
+          {
+            "name": "6510647860764355540"
+          },
+          {
+            "name": "6604872917811393570"
+          },
+          {
+            "name": "8816852289936097716"
+          },
+          {
+            "name": "325681910675012062"
+          },
+          {
+            "name": "1065373737148131478"
+          }
+        ];
+
+        for (const iterator of operations) {
+          runjson(iterator.name);
+        }
+
+        // runjsonp();
+
+      });
+
+    });
+
+    function runjson(strName) {
+      $.ajax({
+        type: 'GET',
+        url: 'https://speech.googleapis.com/v1/operations/' + strName,
+        data: {
+          key: 'AIzaSyCVCnL6mygVrKxNQFPwcphizT7581BLGBE'
+        },
+        dataType: 'json',
+        success: function (json) {
+          console.log(json);
+        }
+      });
+    }
+
+    function runjsonp() {
+      $.ajax({
+        type: 'GET',
+        url: 'https://iwb.jp/s/js/data.jsonp',
+        dataType: 'jsonp',
+        jsonpCallback: 'android',
+        success: function (json) {
+          console.log(json);
+        }
+      });
+    }
+  </script>
+
+</body>
+
+</html>
