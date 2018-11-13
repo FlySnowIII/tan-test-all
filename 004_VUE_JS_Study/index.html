@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Study Note1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app" v-bind:style="style">
+        {{ message }}
+    </div>
+
+    <input type="text" name="" id="my_text">
+    <button type="button" onclick="myclick()"> Click Me to Change</button>
+
+    <div id="app-2">
+        <span v-bind:title="message">
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
+    </div>
+
+    <span title="vvvvvev3444">aaaaa</span>
+
+
+
+    <script src="lib/js/index.js"></script>
+</body>
+
+</html>
