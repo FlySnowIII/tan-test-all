@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+<script>
+async function writeMsgOnDiv(tempObj,msgrowtype){
+    var strArray=[];
+    if(msgrowtype =='user'){
+        strArray.push(tempObj.msg);
+    }
+    else{
+        strArray = tempObj.msg.split('<br> <br>');
+    }
+
+    for(var i=0; i<strArray.length; i++){
+        $('#response').append('<div class="ai-msgrow-' + msgrowtype + '"><img src="lib/img/aiicon.png"/><span class="ai-obj-msg">' + strArray[i]+ '</span></div>');
+        pagejumptobottom();
+        if(_isUserUsedSend && msgrowtype !='user' && i<(strArray.length-1)){
+            await sleep(1000);
+        }
+    }
+
+}
+
+function sleep(msec) {
+    return new Promise(function(resolve) {
+
+    setTimeout(function() {resolve()}, msec);
+
+    })
+}
+
+
+</script>
+</body>
+</html>
