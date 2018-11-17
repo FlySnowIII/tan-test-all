@@ -6,13 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script>
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <p>{{items[0].name}}:{{items[0].price}}x{{items[0].quantity}}</p>
-        <p>{{items[0].price*items[0].quantity}}</p>
+        <ul>
+            <li v-for="(item, index) in items" :key="index">
+                {{item.name}}: <input type="number" v-on:input="item.quantity = $event.target.value" :value="item.quantity" min="0">個
+            </li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="(item, index) in items" :key="index">
+                {{item.name}}: {{item.price|numberWithDelimiter}} x {{item.quantity}} = {{item.price * item.quantity|numberWithDelimiter}}
+            </li>
+        </ul>
+        <p>Total Price: {{totalPrice|numberWithDelimiter}}</p>
+        <p>Total Price with Tax: {{totalPriceWithTax|numberWithDelimiter}}</p>
+        <!-- <p v-show="!canBuy" v-bind:class="errorMessageClass"> -->
+        <!-- :class="" is same to v-bind:class="" -->
+        <p v-show="!canBuy" :class="errorMessageClass">
+            {{1000|numberWithDelimiter}}円以上からご購入いただけます。
+        </p>
+        <button v-bind:disabled="!canBuy" @click="doBuy" type="button">購入</button>
+
     </div>
-    <button id="b-button" v-bind:title="loggedInButton" v-bind:disabled="canntBuy" type="button">購入</button>
     <script src="index.js"></script>
 </body>
 </html>

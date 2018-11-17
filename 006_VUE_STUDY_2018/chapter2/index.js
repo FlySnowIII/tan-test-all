@@ -14,13 +14,45 @@ var items = [
         price:500,
         quantity:0
     },
-]
+];
 
 var vm = new Vue({
     el:'#app',
     data:{
         items:items,
+    },
+    filters:{
+        numberWithDelimiter:function(value){
+            if(!value){
+                return 0+"円";
+            }
+            return "￥"+value.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,')+"円";
+        }
+    },
+    computed:{
+        totalPrice:function(){
+            return this.items.reduce(function(sum,item){
+                return sum + (item.price * item.quantity);
+            },0);
+        },
+        totalPriceWithTax:function(){
+            return Math.floor(this.totalPrice * 1.08);
+        },
+        canBuy:function(){
+            return this.totalPrice>=1000;
+        },
+        errorMessageClass:function(){
+            return {
+                error:!this.canBuy
+            };
+        }
+    },
+    methods:{
+        doBuy:function(){
+            alert("Hello World");
+        }
     }
+    
 });
 
 vm.$watch(function(){
@@ -29,10 +61,3 @@ vm.$watch(function(){
     console.log("quantity is changed:",quantity);
 });
 
-var b_btn = new Vue({
-    el:'#b-button',
-    data:{
-        loggedInButton:'ログインし済のため購入できます',
-        canntBuy:false,
-    }
-});
