@@ -16,7 +16,8 @@
     <div id="app">
         <ul>
             <li v-for="(item, index) in items" :key="index">
-                {{item.name}}: <input type="number" v-on:input="item.quantity = $event.target.value" :value="item.quantity" min="0">個
+                <!-- {{item.name}}: <input type="number" v-on:input="item.quantity = $event.target.value" :value="item.quantity" min="0">個 -->
+                {{item.name}}: <input type="number" v-model="item.quantity" min="0">個
             </li>
         </ul>
         <hr>
@@ -32,7 +33,7 @@
         <p v-show="!canBuy" :class="errorMessageClass">
             {{1000|numberWithDelimiter}}円以上からご購入いただけます。
         </p>
-        <button v-bind:disabled="!canBuy" @click="doBuy" type="button">購入</button>
+        <button v-bind:disabled="!canBuy" @click="doBuy($event)" type="button">購入</button>
 
     </div>
     <script src="index.js"></script>

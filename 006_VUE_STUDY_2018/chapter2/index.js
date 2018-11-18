@@ -16,18 +16,20 @@ var items = [
     },
 ];
 
+function numberWithDelimiter(value){
+    if(!value){
+        return 0+"円";
+    }
+    return "￥"+value.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,')+"円";
+}
+
 var vm = new Vue({
     el:'#app',
     data:{
         items:items,
     },
     filters:{
-        numberWithDelimiter:function(value){
-            if(!value){
-                return 0+"円";
-            }
-            return "￥"+value.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,')+"円";
-        }
+        numberWithDelimiter:numberWithDelimiter
     },
     computed:{
         totalPrice:function(){
@@ -48,8 +50,11 @@ var vm = new Vue({
         }
     },
     methods:{
-        doBuy:function(){
-            alert("Hello World");
+        doBuy:function(event){
+            alert(numberWithDelimiter(this.totalPriceWithTax)+"のお買い上げです(税込)。");
+            this.items.forEach(function (item) {
+                item.quantity = 0;
+            });
         }
     }
     
