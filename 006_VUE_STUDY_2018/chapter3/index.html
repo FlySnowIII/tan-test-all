@@ -19,6 +19,21 @@
         </ul>
         <input-date-with-today></input-date-with-today>
     </div>
+
+    <hr>
+
+    <div id="fruits-componet">
+        <fruits-item-name v-for="(item, index) in frutisItems" :key="item.name" :frutisitem="item"></fruits-item-name>
+    </div>
+
+    <hr>
+
+    <div id="frtuis-counter">
+        <div v-for="(item, index) in fruits" :key="index">
+            {{item.name}}: <counter-button v-on:mycustemorevent="fatherMethodOnClick()"></counter-button>
+        </div>
+        <p>合計:{{total}}</p>
+    </div>
     
     <script src="index.js"></script>
 </body>
