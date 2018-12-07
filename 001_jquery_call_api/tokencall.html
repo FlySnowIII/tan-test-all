@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <title>Tan Test - Jquery Ajax Google Api</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+    crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+  <div class="jumbotron">
+    <h3>WC管理画面側で紐付けると、d.Style側から情報が引っ張られるためのWebAPI</h3>
+    <hr class="my-2">
+    <p>Runボタンを実行してみてください</p>
+    <p class="lead">
+      <button id="myBtn" type="button" class="btn btn-primary px-5">Run</button>
+    </p>
+  </div>
+
+
+
+  <script>
+    $(document).ready(function () {
+
+
+      $("#myBtn").click(function () {
+
+        runJson();
+
+      });
+
+    });
+
+    function runJson(){
+      // 記事リスト
+      // $.ajax({
+      //   type: 'GET',
+      //   url: 'http://localhost/getnewslist',
+      //   dataType: 'json',
+      //   data: {
+      //     pagecount: '20',
+      //     tag: '玉置まゆ',
+      //     genre: '4',
+      //   },
+      //   success: function (json) {
+      //     console.log(json);
+      //   },
+      //   error:function(err){
+      //     console.error("ERROR:",err);
+      //   }
+      // });
+
+      // 求人リスト
+      // $.ajax({
+      //   type: 'GET',
+      //   url: 'http://localhost/getjoblist',
+      //   dataType: 'json',
+      //   data: {
+      //     pagecount: '20',
+      //     comid: 3,
+      //     categorytype: 3,
+      //   },
+      //   success: function (json) {
+      //     console.log(json);
+      //   },
+      //   error:function(err){
+      //     console.error("ERROR:",err);
+      //   }
+      // });
+
+      // トピックリスト
+      $.ajax({
+        type: 'GET',
+        url: 'http://localhost/gettopiclist',
+        dataType: 'json',
+        data: {
+          pagecount: '20',
+          comid: 3,
+          genre: 5,
+        },
+        success: function (json) {
+          console.log(json);
+        },
+        error:function(err){
+          console.error("ERROR:",err);
+        }
+      });
+
+    }
+
+  </script>
+
+</body>
+
+</html>
