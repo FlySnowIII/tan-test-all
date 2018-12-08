@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c|Sawarabi+Mincho" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <title>iTherapy事業所管理システム v 0.1</title>
+</head>
+
+<body>
+    <div id="app">
+        <v-app id="inspire">
+            <v-content>
+                <v-container fluid fill-height>
+                    <v-layout align-center justify-center>
+                        <v-flex xs12 sm8 md4>
+                            <v-layout align-center justify-center fill-height my-4/>
+                                <img src="http://ths.gr.jp/bd/images/clover_logo.png" />
+                            </v-layout>
+                            <v-card class="elevation-12">
+                                <v-toolbar dark color="teal">
+                                    <v-tooltip left>
+                                        <v-btn icon large :href="source" target="_blank" slot="activator">
+                                            <!-- <v-icon large>mdi-account-supervisor</v-icon> -->
+                                            <!-- <v-icon>mdi-xbox-controller</v-icon> -->
+                                            <v-icon>supervised_user_circle</v-icon>
+                                        </v-btn>
+                                        <span>iTherapy</span>
+                                    </v-tooltip>
+                                    <v-toolbar-title style="font-family: 'Kosugi Maru', sans-serif;text-align: center">事業所管理システム</v-toolbar-title>
+                                </v-toolbar>
+                                <v-card-text>
+                                    <v-form>
+                                        <v-text-field prepend-icon="person" name="login" label="Email" type="text"></v-text-field>
+                                        <v-text-field prepend-icon="lock" name="password" label="Password" id="password" type="password"></v-text-field>
+                                    </v-form>
+                                </v-card-text>
+                                <v-card-actions>
+                                    <v-spacer></v-spacer>
+                                    <v-btn color="success" v-on:click="meonclick()">ログイン</v-btn>
+                                </v-card-actions>
+                            </v-card>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
+            </v-content>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: () => ({
+                drawer: null
+            }),
+            props: {
+                source: "http://ths.gr.jp/"
+            },
+            methods: {
+                meonclick: function () {
+                    alert("aaaaa");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

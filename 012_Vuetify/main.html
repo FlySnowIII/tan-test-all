@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c|Sawarabi+Mincho" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <title>iTherapy事業所管理システム v 0.1</title>
+</head>
+
+<body>
+    <div id="app">
+        <v-app id="inspire">
+            <v-navigation-drawer fixed v-model="drawer" app>
+                <v-list dense>
+                    <v-list-tile @click="">
+                        <v-list-tile-action>
+                            <v-icon>dashboard</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title>Dashboard</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-list-tile @click="">
+                        <v-list-tile-action>
+                            <v-icon>person_add</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title>申請一覧</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-list-tile @click="">
+                        <v-list-tile-action>
+                            <v-icon>supervised_user_circle</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title>ユーザー一覧</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-list-tile @click="">
+                        <v-list-tile-action>
+                            <v-icon>movie</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title>動画一覧</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-list-tile @click="">
+                        <v-list-tile-action>
+                            <v-icon>queue</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title>掲示板一覧</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </v-list>
+            </v-navigation-drawer>
+            <v-toolbar color="teal" dark fixed app>
+                <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+                <v-toolbar-title>事業所管理システム</v-toolbar-title>
+            </v-toolbar>
+            <v-content>
+                <v-container fluid fill-height>
+                    <v-layout justify-center align-center>
+                        <!-- <v-flex text-xs-center>
+                            <v-tooltip left>
+                                <v-btn icon large :href="source" target="_blank" slot="activator">
+                                    <v-icon large>code</v-icon>
+                                </v-btn>
+                                <span>Source</span>
+                            </v-tooltip>
+                        </v-flex> -->
+                    </v-layout>
+                </v-container>
+            </v-content>
+            <v-footer color="teal" app inset>
+                <span class="white--text px-2">&copy; ths.gr.jp ALL Rights Reserved.</span>
+            </v-footer>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: () => ({
+                drawer: null
+            }),
+            props: {
+                source: "www.nbfab.com"
+            }
+        })
+    </script>
+</body>
+
+</html>
