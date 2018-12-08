@@ -1,0 +1,8 @@
+.holder{
+    background-color: aquamarine;
+}
+
+.holder li{
+    color:yellow;
+    padding: 20px
+}
