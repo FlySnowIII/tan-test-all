@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="lib/style.css">
+    <title>Getting Started with GSAP TweenMax (Tutorial) - Animating a Landing Page</title>
+</head>
+<body>
+    <h1>Enginnering For Tomorrow</h1>
+    <button id="cta" type="button">watch here</button>
+    <div class="panel">
+        <img id="light" src="lib/image/71GMM-+XXoL.png" alt="" srcset="">
+        <p id="ptext">
+            Some great line about engineering and how we did something everyone is going to love.
+        </p>
+        <div class="box"></div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
+    <script>
+    document.getElementById('cta').addEventListener('click',function(){
+        TweenMax.to('.panel',1.5,{scaleY:1,height:'100vh',ease: Circ.easeOut});
+        TweenMax.to('#light',1,{opacity:1,y:0,delay:1});
+        TweenMax.to('#ptext',1,{opacity:1,y:20,delay:1.4});
+        TweenMax.to('.box',3,{opacity:1,scale:1,ease: Elastic.easeOut.config(1, 0.3)});
+
+
+
+    });
+    </script>
+</body>
+</html>
