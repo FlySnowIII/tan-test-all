@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        let aArray = ['apple','banana','orange'];
+        let bArray = Array.from(aArray);
+        let cArray = [...aArray];
+
+        console.table(aArray);
+        console.table(bArray);
+        console.table(cArray);
+
+        bArray.push('tomoto');
+        cArray.push('tokyo');
+
+        console.table(aArray);
+        console.table(bArray);
+        console.table(cArray);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
